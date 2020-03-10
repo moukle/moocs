@@ -5,4 +5,4 @@
 - [Learning How to Learn](https://www.coursera.org/learn/learning-how-to-learn/home/welcome)
 
 ## 2019
-- [Machine Learning](https://www.coursera.org/learn/machine-learning) **HONOR CODE - CAN'T SHARE**
+- [Machine Learning](https://www.coursera.org/learn/machine-learning) *(HONOR CODE - CAN'T SHARE)*
