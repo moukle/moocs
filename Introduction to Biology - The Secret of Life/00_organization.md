@@ -1,3 +1,3 @@
-Course Name: Biology, 7.00x: Introduction to Biology - The Secret of Life
-Start: 09. March 2020
-Viewed at: https://courses.edx.org/courses/course-v1:MITx+7.00x+1T2020j/course/
+- Course Name: Biology, 7.00x: Introduction to Biology - The Secret of Life
+- Start: 09. March 2020
+- Viewed at: https://courses.edx.org/courses/course-v1:MITx+7.00x+1T2020j/course/
