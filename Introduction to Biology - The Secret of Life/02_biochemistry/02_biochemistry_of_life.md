@@ -41,9 +41,9 @@ Share electrons to complete outer ring
 
 Random thermal Fluctuations + 0.6 KCal/Mol
 
-|Atom      | H | C | O    | N    | P | S   |
-|- --------|---|---|------|------|---|-----|
-|Max Bonds | 1 | 4 | 2(1) | 3(4) | 5 | 6(2)|
+| Atom      | H | C | O    | N    | P | S   |
+| ----------|---|---|------|------|---|-----|
+| Max Bonds | 1 | 4 | 2(1) | 3(4) | 5 | 6(2)|
 
 Electronegativity (Greediness - how strong they pull electrons)
 - O, N >> C, H
@@ -96,11 +96,13 @@ Atom switches group resulting in net negative and net positive. These attract ea
 > Combined: Tri Acly Glyceride - **Triglyceride** -> **Hydrophobic**
 
 - Phosphate (Hydrophobic & Hydrophilic -> Confused):
+```
 `-C-C-C-C-C-C[--O][-OH]`-`HO-C-H`
 `-C-C-C-C-C-C[--O][-OH]`-`HO-C-H`
                              |  `O`
                            `-C-O-P-O`
                                 `O`
+```
 
 - Phosphate = `~~~~~~~~o` (Head (o) Hydrophilic)
 	- Heads together, Tails together
