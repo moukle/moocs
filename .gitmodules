@@ -1,0 +1,3 @@
+[submodule "ml-coursera"]
+	path = Machine Learning
+	url = https://github.com/phcrm/ml-coursera

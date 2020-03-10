@@ -1,0 +1,3 @@
+- Course Name: Learning How to Learn: Powerful mental tools to help you master tough subjects
+- Start: Dezember 2019
+- Viewed at: https://www.coursera.org/learn/learning-how-to-learn/home/welcome
