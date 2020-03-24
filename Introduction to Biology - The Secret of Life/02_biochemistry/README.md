@@ -1,5 +1,7 @@
 # Lecture 2 - **Biochemistry** of Life
 
+![](./G02_1.jpg)
+
 ## 1. Death of Vitalism
 - Sugar in Water
 	- Bubbles after days (carbon dioxide `CO2` -> bread)
@@ -30,6 +32,7 @@ Split life into cells
 	- Lipids, Fats: 10%
 	- Nucleic Acids: 15%
 
+![](./G02_2.jpg)
 
 ## 3. Covalent Bonds
 Share electrons to complete outer ring
@@ -54,6 +57,7 @@ Electronegativity (Greediness - how strong they pull electrons)
 		- C-C
 		- C-H
 
+![](./G02_3.jpg)
 
 ## 4. Non-Covalent Bonds
 1. Hydrogen Bonds ( 5 KCal/Mol )
@@ -72,10 +76,13 @@ Atom switches group resulting in net negative and net positive. These attract ea
 
 > One covalent bond is stronger than one hydrogen bond, and one hydrogen bond is stronger than one van der Waals interaction.
 
+![](./G02_4.jpg)
+
 4. Hydrophobic "Forces"
 - Non-Polars mixing with Polar bonds:
 	- Oil & Water not mixing!
 
+![](./G02_5.jpg)
 
 ## 5. Understanding Properties of Molecules
 ### 1. Example: Membrane
@@ -94,6 +101,8 @@ Atom switches group resulting in net negative and net positive. These attract ea
 `-C-C-C-C-C-C[--O][-OH]`-`HO-C-H`
 ```
 > Combined: Tri Acly Glyceride - **Triglyceride** -> **Hydrophobic**
+
+![](./G02_6.jpg)
 
 - Phosphate (Hydrophobic & Hydrophilic -> Confused):
 ```
@@ -115,6 +124,8 @@ Atom switches group resulting in net negative and net positive. These attract ea
 	oooooo
 	```
 
+![](./G02_7.jpg)
+
 > In an aqueous solution, micelles form with the tails facing inward, and the heads facing outward and interacting with the aqueous environment. When tails face outwards in a hydrophobic solvent, that is called a reverse micelle. The interactions with water are non-covalent hydrogen bonds. The aggregation of the phospholipids is driven by the hydrophobic effect in which non-polar molecules come together in a polar environment.
 
 ### 2. High Energy Molecule
@@ -132,6 +143,8 @@ Atom switches group resulting in net negative and net positive. These attract ea
 
 - **Glucose** in *Circle*! Hexagon beside Hexagon beside ...
 - Forming strong bonds holding up trees!
+
+![](./G02_8.jpg)
 
 # DeepDive
 ## How to read chemical structures
