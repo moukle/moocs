@@ -30,6 +30,8 @@
 - Organelles: Nucleus, Mitochondrion
 - Molecule: DNA
 
+![](./01_introduction-1_whiteboard.jpg)
+
 2. Evolution (*billion years ago = BYA*)
 - 4.5 BYA       - earth formed
 - 4.0 BYA       - eather cooled
@@ -44,6 +46,7 @@
 - Eukaryotic: Animals, Plant, Fungi (big)
 - Prokaryotic: Bacteria (small - no nuclide)
 
+![](./01_introduction-2_whiteboard.jpg)
 
 ## Outline of Course
 - Fundamental principals
@@ -58,3 +61,5 @@
 	- Gene <DNA-RNA> Proteins: Molecular Biology
 	- Recombinant DNA (read single gene)
 - Genomic (observer of *all*)
+
+![](./01_introduction-3_whiteboard.jpg)
