@@ -1,11 +1,11 @@
 # Lecture 5 - Biochemical Pathways
 ![](./G05_1.jpg)
 
-## Energetics of ~Pathways~ Reaction
+## Energetics of _Pathways_ Reaction
 G3P -> DHAP ($\Delta G0'=-186 kcal/mol$)
 
 - A -> B
-	- $\Delta G = \Delta G^0' + RT ln \frac {B}{A}$
+	- $\Delta G = \Delta \bar{G^0} + RT ln \frac{B}{A}$
 		- $RT = 0.6$
 	- $\Delta G < 0$ reaction runs forwards / favorable
 	- $\Delta G > 0$ reaction runs backwards / unfavorable
