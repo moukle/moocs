@@ -1,0 +1,3 @@
+- Course Name: Introduction to Computational Thinking
+- Homepage: https://mitmath.github.io/18S191/Fall20/
+- Start: September 2020
