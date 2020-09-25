@@ -427,48 +427,20 @@ which is one of $j-1$, $j$ or $j+1$, up to boundary conditions.
 Return these two values in a tuple.
 """
 
-# ╔═╡ 8ec27ef8-f320-11ea-2573-c97b7b908cb7
+# ╔═╡ 63b1428c-fa12-11ea-16de-3dbede2d812b
 ## returns lowest possible sum energy at pixel (i, j), and the column to jump to in row i+1.
 function least_energy(energies, i, j)
-	m, n = size(energies)
-	if i == m
-		return energies[i, j], -1
-	end
-
-	left  = clamp(j-1, 1, n)
-	right = clamp(j+1, 1, n)
-	
-	next = argmin(energies[i+1, left:right])
-	
-	# make next relative: left = -1, mid=0, right=1
-	if right - left < 2 && left == 1 # boundary case
-		next -= 1
-	else
-		next -= 2
-	end
-
-	return energies[i,j] + least_energy(energies, i+1, j+next)[1], j+next
-end
-
-# ╔═╡ 63b1428c-fa12-11ea-16de-3dbede2d812b
-function least_energy2(energies, i, j)
 	h, w = size(energies)
 	
 	if i == h
 		return energies[i, j], -1
 	end
 	
-	next_energies = [(least_energy2(energies, i+1, k)[1], k) for k in max(1, j-1):min(j+1, w)]
-	next_energie_min = next_energies[argmin(next_energies)]
+	next = [(least_energy(energies, i+1, k)[1], k) for k in max(1, j-1):min(j+1, w)]
+	next_min = next[argmin(next)]
 	
-	# println(next_energies)
-	# println(i)
-	
-	return energies[i,j] + next_energie_min[1][1], next_energie_min[2]
+	return energies[i,j] + next_min[1][1], next_min[2]
 end
-
-# ╔═╡ 3e090b42-fa13-11ea-2680-45a66955e2ea
-argmin([(12, 1), (11, 2), (123,1), (10, 3)])
 
 # ╔═╡ a7f3d9f8-f3bb-11ea-0c1a-55bbb8408f09
 md"""
@@ -506,19 +478,14 @@ This will give you the method used in the lecture to perform [exhaustive search 
 function recursive_seam(energies, starting_pixel)
 	m, n = size(energies)
 	
-	min_seam = zeros(Int, m)
-	min_seam[1] = starting_pixel
-	min_energie = Inf
-	
-	cur_seam = copy(min_seam)
-	cur_energie = 0
-	
+	seam = zeros(Int, m)
+	seam[1] = starting_pixel
+
 	for i in 1:m-1
-		e, cur_seam[i+1] = least_energy2(energies, i, cur_seam[i])
-		cur_energie += e
+		_, seam[i+1] = least_energy(energies, i, seam[i])
 	end
 	
-	return cur_seam
+	return seam
 end
 
 # ╔═╡ 1d55333c-f393-11ea-229a-5b1e9cabea6a
@@ -534,7 +501,9 @@ md"""
 
 # ╔═╡ 6d993a5c-f373-11ea-0dde-c94e3bbd1552
 exhaustive_observation = md"""
-<your answer here>
+Has to recompute min each iteration going down complete depth without remembering alerady computed.
+
+$O(3^n)?$
 """
 
 # ╔═╡ ea417c2a-f373-11ea-3bb0-b1b5754f2fac
@@ -567,22 +536,65 @@ You are expected to read and understand the [documentation on dictionaries](http
 3. Access contents of the dictionary by a key.
 """
 
+# ╔═╡ 89b8d102-ff53-11ea-3eeb-ffe0d76f2667
+begin
+	x = Dict{Tuple{Int,Int}, Float64}()
+	push!(x, (1,1) => 2)
+end
+
 # ╔═╡ b1d09bc8-f320-11ea-26bb-0101c9a204e2
 function memoized_least_energy(energies, i, j, memory)
-	m, n = size(energies)
+	return get!(memory, (i,j)) do
+		h, w = size(energies)
+		if i == h
+			push!(memory, (i,j) => energies[i,j])
+		else
+			next = [(memoized_least_energy(energies, i+1, k, memory), k)
+				for k in max(1, j-1):min(j+1, w)]
+			next_min = next[argmin(next)]
+			push!(memory, (i,j) => energies[i,j] + next_min[1][1])
+		end
+		get(memory, (i,j), -1)
+	end
+end
+
+# ╔═╡ 525df1b2-ff74-11ea-2f65-dd80807e4130
+function memoized_least_energy2(energies, i, j, memory)
+	h, w = size(energies)
+
+	if haskey(memory, (i,j))
+		return get(memory, (i,j), missing)
+	end
+
+	if i == h
+		push!(memory, (i,j) => energies[i,j])
+	else
+		next = [(memoized_least_energy(energies, i+1, k, memory), k)
+			for k in max(1, j-1):min(j+1, w)]
+		next_min = next[argmin(next)]
+
+		push!(memory, (i,j) => energies[i,j] + next_min[1][1])
+	end
 	
-	# Replace the following line with your code.
-	[starting_pixel for i=1:m]
+	return get(memory, (i,j), missing)
 end
 
 # ╔═╡ 3e8b0868-f3bd-11ea-0c15-011bbd6ac051
 function recursive_memoized_seam(energies, starting_pixel)
 	memory = Dict{Tuple{Int,Int}, Float64}() # location => least energy.
 	                                         # pass this every time you call memoized_least_energy.
-	m, n = size(energies)
+	h, w = size(energies)
 	
-	# Replace the following line with your code.
-	[rand(1:starting_pixel) for i=1:m]
+	seam = zeros(Int, h)
+	seam[1] = starting_pixel
+	
+	for i in 1:h-1
+		next = [(memoized_least_energy(energies, i+1, k, memory)[1], k) 
+			for k in max(1, seam[i]-1):min(seam[i]+1, w)]
+		seam[i+1] = next[argmin(next)][2]
+	end
+	
+	return seam
 end
 
 # ╔═╡ 4e3bcf88-f3c5-11ea-3ada-2ff9213647b7
@@ -601,19 +613,37 @@ Write a variation of `matrix_memoized_least_energy` and `matrix_memoized_seam` w
 
 # ╔═╡ c8724b5e-f3bd-11ea-0034-b92af21ca12d
 function matrix_memoized_least_energy(energies, i, j, memory)
-	m, n = size(energies)
+	h, w = size(energies)
 	
-	# Replace the following line with your code.
-	[starting_pixel for i=1:m]
+	if i == h
+		return energies[i,j]
+	end
+	
+	if memory[i, j] == 0
+		next = [(matrix_memoized_least_energy(energies, i+1, k, memory), k)
+			for k in max(1, j-1):min(j+1, w)]
+		next_min = next[argmin(next)]
+		memory[i,j] = energies[i,j] + next_min[1][1]
+	end
+	
+	return memory[i,j]
 end
 
 # ╔═╡ be7d40e2-f320-11ea-1b56-dff2a0a16e8d
 function matrix_memoized_seam(energies, starting_pixel)
 	memory = zeros(size(energies)) # use this as storage -- intially it's all zeros
-	m, n = size(energies)
+	h, w = size(energies)
 	
-	# Replace the following line with your code.
-	[starting_pixel for i=1:m]
+	seam = zeros(Int, h)
+	seam[1] = starting_pixel
+	
+	for i in 1:h-1
+		next = [(matrix_memoized_least_energy(energies, i+1, k, memory)[1], k) 
+			for k in max(1, seam[i]-1):min(seam[i]+1, w)]
+		seam[i+1] = next[argmin(next)][2]
+	end
+	
+	return seam
 end
 
 # ╔═╡ 507f3870-f3c5-11ea-11f6-ada3bb087634
@@ -632,7 +662,17 @@ Now it's easy to see that the above algorithm is equivalent to one that populate
 
 # ╔═╡ ff055726-f320-11ea-32f6-2bf38d7dd310
 function least_energy_matrix(energies)
-	copy(energies)
+	h, w = size(energies)
+	println(h*w)
+
+	E = zeros((h,w))
+	E[h, :] = energies[h, :] # prepare last row
+	
+	for i ∈ h-1:-1:1, j ∈ 1:w
+		neighbors = [E[i+1, k] + energies[i,k] for k ∈ max(1,j-1):min(j+1, w)]
+		E[i, j] = minimum(neighbors)
+	end
+	E
 end
 
 # ╔═╡ 92e19f22-f37b-11ea-25f7-e321337e375e
@@ -644,11 +684,18 @@ md"""
 
 # ╔═╡ 795eb2c4-f37b-11ea-01e1-1dbac3c80c13
 function seam_from_precomputed_least_energy(energies, starting_pixel::Int)
-	least_energies = least_energy_matrix(energies)
-	m, n = size(least_energies)
+	h, w = size(energies)
+
+	seam = zeros(Int, h)
+	seam[1] = starting_pixel
 	
-	# Replace the following line with your code.
-	[starting_pixel for i=1:m]
+	for i ∈ 1:h-1
+		j = seam[i]
+		neighbors = [[energies[i,k], k] for k ∈ max(1,j-1):min(j+1, w)]
+		seam[i+1] = minimum(neighbors)[2]
+	end
+	
+	seam
 end
 
 # ╔═╡ 51df0c98-f3c5-11ea-25b8-af41dc182bac
@@ -683,13 +730,15 @@ end
 
 # ╔═╡ 437ba6ce-f37d-11ea-1010-5f6a6e282f9b
 function shrink_n(img, n, min_seam, imgs=[]; show_lightning=true)
+	println(n)
 	n==0 && return push!(imgs, img)
 
 	e = energy(img)
 	seam_energy(seam) = sum(e[i, seam[i]]  for i in 1:size(img, 1))
 	_, min_j = findmin(map(j->seam_energy(min_seam(e, j)), 1:size(e, 2)))
 	min_seam_vec = min_seam(e, min_j)
-	img′ = remove_in_each_row(img, min_seam_vec)
+	#img′ = remove_in_each_row(img, min_seam_vec)
+	img′ = remove_in_each_row_views(img, min_seam_vec)
 	if show_lightning
 		push!(imgs, mark_path(img, min_seam_vec))
 	else
@@ -763,12 +812,9 @@ size(pika)
 # ╔═╡ fa8e2772-f3b6-11ea-30f7-699717693164
 if compute_access
 	tracked = track_access(energy(pika))
-	least_energy2(tracked, 2,3)
+	least_energy(tracked, 1,7)
 	tracked.accesses[]
 end
-
-# ╔═╡ f736c4a4-fa0e-11ea-2eb0-a953b2275281
-least_energy(energy(pika), 1,7)
 
 # ╔═╡ d88bc272-f392-11ea-0efd-15e0e2b2cd4e
 if shrink_recursive
@@ -976,13 +1022,10 @@ bigbreak
 # ╟─9101d5a0-f371-11ea-1c04-f3f43b96ca4a
 # ╠═ddba07dc-f3b7-11ea-353e-0f67713727fc
 # ╠═73b52fd6-f3b9-11ea-14ed-ebfcab1ce6aa
-# ╠═8ec27ef8-f320-11ea-2573-c97b7b908cb7
 # ╠═63b1428c-fa12-11ea-16de-3dbede2d812b
-# ╠═3e090b42-fa13-11ea-2680-45a66955e2ea
 # ╟─9f18efe2-f38e-11ea-0871-6d7760d0b2f6
 # ╟─a7f3d9f8-f3bb-11ea-0c1a-55bbb8408f09
 # ╠═fa8e2772-f3b6-11ea-30f7-699717693164
-# ╠═f736c4a4-fa0e-11ea-2eb0-a953b2275281
 # ╟─18e0fd8a-f3bc-11ea-0713-fbf74d5fa41a
 # ╟─cbf29020-f3ba-11ea-2cb0-b92836f3d04b
 # ╟─8bc930f0-f372-11ea-06cb-79ced2834720
@@ -992,11 +1035,13 @@ bigbreak
 # ╠═e66ef06a-f392-11ea-30ab-7160e7723a17
 # ╟─c572f6ce-f372-11ea-3c9a-e3a21384edca
 # ╠═6d993a5c-f373-11ea-0dde-c94e3bbd1552
-# ╠═ea417c2a-f373-11ea-3bb0-b1b5754f2fac
+# ╟─ea417c2a-f373-11ea-3bb0-b1b5754f2fac
 # ╟─56a7f954-f374-11ea-0391-f79b75195f4d
+# ╠═89b8d102-ff53-11ea-3eeb-ffe0d76f2667
+# ╠═525df1b2-ff74-11ea-2f65-dd80807e4130
 # ╠═b1d09bc8-f320-11ea-26bb-0101c9a204e2
 # ╠═3e8b0868-f3bd-11ea-0c15-011bbd6ac051
-# ╠═4e3bcf88-f3c5-11ea-3ada-2ff9213647b7
+# ╟─4e3bcf88-f3c5-11ea-3ada-2ff9213647b7
 # ╠═4e3ef866-f3c5-11ea-3fb0-27d1ca9a9a3f
 # ╠═6e73b1da-f3c5-11ea-145f-6383effe8a89
 # ╟─cf39fa2a-f374-11ea-0680-55817de1b837
