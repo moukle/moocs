@@ -1,0 +1,24 @@
+# 1 - Fri Oct  2
+- General
+	- VAE vs GAN
+	- Generative models learn to produce *realistic* examples
+	- Discriminative models distinguish between classes (*fake vs real*)
+- Status
+	- GAN's performance is rapidly improving :fire:
+	- Major companies use them
+- Discriminator
+	- **Discriminator** is a classifier
+	- It learns the probability of class Y (real/fake) given features X: $P(Y|X)$
+	- Probabilities are the feedback for the generator
+- Generator
+	- The **generator** produces fake data
+	- Learns the probability of features X: $P(X|Y)$
+	- Takes as input random noise for different outputs each time
+- BCE / Loss
+	- The **BCE** cost function has two parts (one for each class)
+	- Close to zero when the label and the prediction are similar
+	- Approaches $\infty$ when the label and the prediction are different
+- Training
+	- GANs train in an alternating fashion
+	- Both models should be of equal level, otherwise the feedback isn't useful
+
