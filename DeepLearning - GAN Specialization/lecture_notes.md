@@ -22,3 +22,29 @@
 	- GANs train in an alternating fashion
 	- Both models should be of equal level, otherwise the feedback isn't useful
 
+# 2 - Sun Oct  4
+- Activations
+	- Non-linear and differentiable
+	- Differentiable for backpropagation
+	- Non-linear to approximate complex functions
+- Common activation functions
+	- ReLU: $max(0, z)$
+	- Dying ReLU -> Leaky ReLU: $max(az, z)$ (commonly $a=0.1$)
+	- Tanh -1:1 / Sigmoid 0:1 (vanishing gradients)
+- Batch Normalization
+	- smooths the cost function
+	- reduces internal covariance shift (distribution of data changing)
+	- speeds up learning
+	- introduces learnable shift and scale factors
+		- $\hat z = \frac{z - \mu_z}{\sqrt{\sigma^2 + \epsilon}}$
+		- scale $\gamma$ + shift $\beta$ factor: $y = \gamma \hat z + \beta$
+	- during test, the running statistics from training are used
+	- frameworks take care of the statistics (BatchNorm layer)
+- Convolutions
+	- slide filter / matrix over image
+	- edge filter ... / learn the filter for feature x
+	- stride & padding, pool & upsampling
+- Transposed / De-Convolutions
+	- upsample input
+	- learnable params
+	- result often in checkerboard patterns ([example](https://distill.pub/2016/deconv-checkerboard/))-> upsample+conv
