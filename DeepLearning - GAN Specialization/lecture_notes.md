@@ -48,3 +48,26 @@
 	- upsample input
 	- learnable params
 	- result often in checkerboard patterns ([example](https://distill.pub/2016/deconv-checkerboard/))-> upsample+conv
+
+# 3 - Fri Oct  9
+- Mode Collapse
+	- Modes are the peaks in the distribution of features
+	- Typical in real-world datasets
+	- Happens when the generator gets stuck in one image (i.e. only generating one single image, which fools the disc)
+- Problems with BCE
+	- GANs try to make the real and generated distribution look similar
+	- When the discriminator improves too much, the function approximated by BCE will contain flat regions
+	- Flat regions on cost function = vanishing gradients
+- Earth Mover's Distance
+	- EMD is function of amount and distance
+	- Doesn't have flat regions when the distributions are very different
+	- Approximating EMD solves the problem associated with BCE
+- Wasserstein Loss
+	- W-loss looks very similar to BCE Loss
+	- W-loss prevents mode collapse and vanishing gradient problems
+- Condition on Wasserstein Critic
+	- Neural network needs to be 1-L continuous
+	- This ensures that W-loss is validly approximating EMD
+- 1-Lipschnitz Continuity enforcement
+	- Weight clipping and gradient penalty are ways to enforce 1-L continuity
+	- Gradient penalty tends to work better
