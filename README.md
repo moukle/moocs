@@ -1,7 +1,7 @@
 # moocs
 
 ## 2020
-- [ ] [DeepLearning - Build Basic Generative Adversarial Networks (GANs)](https://www.coursera.org/learn/build-basic-generative-adversarial-networks-gans)
+- [ ] [DeepLearning - Generative Adversarial Networks (GANs) Specialization](https://www.coursera.org/specializations/generative-adversarial-networks-gans)
 	- [ ] 1 Part: Build Basic Generative Adversarial Networks (GANs)
 	- [ ] 2 Part: Build Better Generative Adversarial Networks (GANs) *(can't afford course atm)*
 	- [ ] 3 Part: Apply Generative Adversarial Networks (GANs) *(can't afford course atm)*
