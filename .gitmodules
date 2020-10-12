@@ -1,6 +1,6 @@
 [submodule "ml-coursera"]
 	path = Machine Learning
-	url = https://github.com/phcrm/ml-coursera
+	url = git@github.com:moukle/ml-coursera.git
 [submodule "Introduction to Computational Thinking/18S191"]
 	path = Introduction to Computational Thinking/18S191
 	url = git@github.com:mitmath/18S191.git

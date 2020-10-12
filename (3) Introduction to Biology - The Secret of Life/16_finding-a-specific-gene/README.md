@@ -1,0 +1,11 @@
+# Lecuture 16 - Finding a specific Gene
+
+> If the restriction enzymes are limited in concentration and/or time, then the enzymes do not have the opportunity to cut at all of the available sites. Imagine that gene X contains a restriction enzyme site for the enzyme you have chosen, and remember that you have many copies of the source genome. There are many copies of gene X, and some of those copies will be cut with enzyme, but other copies of gene X will not be cut. Once the enzyme is inactivated, you will have a pool of DNA fragments. Some of those fragments will contain a complete copy of gene X.
+
+> The cloning site will be DNA sequence that is recognized by one or more restriction enzymes. This same sequence can appear on either type of plasmid. The origin of replication sequence will differ between the plasmids. The replication machinery (DNA polymerase and associated proteins) is different in bacteria and yeast. The bacterial proteins will bind to the specific DNA sequence that is recognized as a bacterial origin, whereas the yeast proteins will bind to a different DNA sequence that is recognized as a yeast origin. The bacterial proteins do not bind to the sequence that the yeast proteins bind to, and vice versa. The selectable marker sequence will differ between the plasmids. Antibiotics like ampicillin will affect bacterial cells, but not yeast cells, so the gene that confers resistance to ampicillin is a useful tool in a bacterial plasmid, but not in a yeast plasmid. Selection in eukaryotic yeast cells sometimes involves resistance to a drug, but usually one can take advantage of auxotrophic strains of yeast that do not grow in the absence of an amino acid or nucleotide precursor. The selectable marker would be the wild-type copy of the defective gene causing the auxotrophic phenotype.
+> A cDNA copy of a gene is made through the reverse transcription of the mature mRNA to DNA. Mature mRNA does not include the promoter sequence or the introns that are removed during splicing. The mature mRNA does include the exons as well as the start and stop codons.
+
+> To identify the genes important for the oil-degrading ability, you could attempt the following:
+> 1. The mutant cells...  would not be able to degrade oil.
+> 2. Alcanivorax wild type cells
+> 3. Look for cells that degrade oil.

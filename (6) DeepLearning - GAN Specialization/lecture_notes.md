@@ -71,3 +71,14 @@
 - 1-Lipschnitz Continuity enforcement
 	- Weight clipping and gradient penalty are ways to enforce 1-L continuity
 	- Gradient penalty tends to work better
+
+# 4 - Mon Oct 12
+- Conditional Generation
+	- Intuition
+		- requires labeled datasets
+		- examples can be generated for the selected class
+	- Input
+		- Noise + Class (usually one-hot)
+		- Class is passed to Generator and Discriminator
+		- Both the discriminator and generator receive the class information appended to their traditional inputs for conditional generation
+		- Could use extra NN for classprediction on Discriminator's end
