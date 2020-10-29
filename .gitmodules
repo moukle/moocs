@@ -1,9 +1,9 @@
-[submodule "ml-coursera"]
-	path = (1) Machine Learning
-	url = git@github.com:moukle/ml-coursera.git
-[submodule "Introduction to Computational Thinking/18S191"]
-	path = (5) Introduction to Computational Thinking/18S191
-	url = git@github.com:mitmath/18S191.git
-[submodule "(6) DeepLearning - GAN Specialization/assignments"]
-	path = (6) DeepLearning - GAN Specialization/assignments
+[submodule "06 -- DeepLearning - GAN Specialization/assignments"]
+	path = 06 -- DeepLearning - GAN Specialization/assignments
 	url = git@github.com:moukle/coursera-gan_assignments.git
+[submodule "01 -- Machine Learning/assignments"]
+	path = 01 -- Machine Learning/assignments
+	url = git@github.com:moukle/ml-coursera.git
+[submodule "05 -- Introduction to Computational Thinking/18S191"]
+	path = 05 -- Introduction to Computational Thinking/18S191
+	url = git@github.com:mitmath/18S191.git
