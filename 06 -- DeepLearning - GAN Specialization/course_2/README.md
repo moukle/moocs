@@ -48,5 +48,17 @@
 	> It truncates the normal distribution that you sample your noise vector from based on a hyperparameter that determines how much of the tails to cut off or keep.
 	> If you want higher fidelity, you want to sample around 0 and truncate a larger part of the tails. If you want greater diversity, then you want to sample more from the tails of the distribution and have a lower truncation value.
 	- can lead to worse FID
-	- HYPE (Human eYe Perceptual Evaluation)
-		- [Paper](https://arxiv.org/abs/1904.01121)
+	- HYPE (Human eYe Perceptual Evaluation) [(Paper)](https://arxiv.org/abs/1904.01121)
+- Recall & Precision [(Paper)](https://arxiv.org/abs/1904.06991)
+	> $g=fake, r=real$
+	> ![precision](img/precision.png)
+	> $$p = \frac{overlap}{all fakes}$$
+	> ![recall](img/recall.png)
+	> $$r = \frac{overlap}{all reals}$$
+	- G tends to cover all **and more**
+		- good recall, bad precision
+		- thus truncate to improve precision
+- Other
+	- [FID Implementation Guide](https://machinelearningmastery.com/how-to-implement-the-frechet-inception-distance-fid-from-scratch/)
+	- [FID in PyTorch (GitHub)](https://github.com/bioinf-jku/TTUR)
+
