@@ -62,3 +62,70 @@
 	- [FID Implementation Guide](https://machinelearningmastery.com/how-to-implement-the-frechet-inception-distance-fid-from-scratch/)
 	- [FID in PyTorch (GitHub)](https://github.com/bioinf-jku/TTUR)
 
+## 2 - Thu Jan 07 (GAN Disadvantages and Bias)
+
+- Disadvantages
+    - lack of intrinsic evaluation metrics
+    - unstable training
+    - no density estimation
+    - inverting is not straightforward
+- Advantages
+    - amazing empirical results
+    - fast inference
+- Alternatives to GANs
+    - VAEs
+        - opposite pros/cons
+        - lower fidelity results
+        - +density estimation, +inversion, +stable train
+    - Autoregressive models
+    - Flow models
+    - Hybrid models
+- Bias
+    - disproportionately negative effect on historically undeserved populations
+    - Risk assessment software
+        - Difficult to validate
+        - Misses important considerations about people
+- Fairness
+    - difficult to define
+    - no single definition
+    - important to explore before release
+    - can be introduced to a model at each step of the process
+    - awareness and mitigation of bias is vital to responsible use of AI, and especially SOTA GANs
+
+## 3 - Thu Jan 07 (StyleGAN and Advancements)
+
+- GAN Improvements
+    - stability - longer training and better images
+        - WGAN-GP, Spectral Normalization
+    - capacity - larger models and higher resolution images
+    - diversity - increasing variety in generated images
+- StyleGAN
+    - Goals
+        - greater fidelity
+        - increased diversity
+        - more feature contorol
+    - Style: any variation in the image, from large to small (early/late layers)
+    - Main components
+        - Noise Mapping Network
+        - Adaptive Instance Normalization (AdaIN)
+        - Progressive Growing
+        - Style Mixing
+        - Stochastic Noise
+- Progressive Growing
+    - gradually double image resolution
+    - helps with faster and more stable training for higher resolutions
+- Noise Mapping Network
+    - allows for a more disentangled noise space
+    - intermediate noise vector is used as inputs to the generator
+- Adaptive Instance Normalization (AdaIN)
+    - transfers style information onto the generated image from the intermediate noise vector
+    - used to normalize individual examples before applying style statistics from the intermediate noise vector
+- Style and Stochastic Variation
+    - style mixing increases diversity that the model sees during training
+    - stochastic noise causes small variations to output
+    - coarse or fineness depends where the network style or noise is added
+        - Earlier for coarser variation
+        - Later for finer variation
+- Resources
+    - [Notebook: Freeze D](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C2W3_FreezeD_(Optional).ipynb)
+    - [StyleGAN 1 & 2](https://jonathan-hui.medium.com/gan-stylegan-stylegan2-479bdf256299)

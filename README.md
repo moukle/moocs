@@ -3,7 +3,7 @@
 ## 2020
 - [ ] [6 - DeepLearning - Generative Adversarial Networks (GANs) Specialization](https://www.coursera.org/specializations/generative-adversarial-networks-gans)
 	- [X] 1 Part: Build Basic Generative Adversarial Networks (GANs)
-	- [ ] 2 Part: Build Better Generative Adversarial Networks (GANs) *(can't afford course atm)*
+	- [X] 2 Part: Build Better Generative Adversarial Networks (GANs) *(only audit)*
 	- [ ] 3 Part: Apply Generative Adversarial Networks (GANs) *(can't afford course atm)*
 - [ ] [5 - MIT 18.S191 Introduction to Computational Thinking](https://mitmath.github.io/18S191/Fall20/)
 - [ ] [4 - CS50's Introduction to Game Development](https://courses.edx.org/courses/course-v1:HarvardX+CS50G+Games/course/)
