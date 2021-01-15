@@ -10,7 +10,7 @@
 	- [ ] 3 Part: Apply Generative Adversarial Networks (GANs) *(can't afford course atm)*
 - [ ] [5 - MIT 18.S191 Introduction to Computational Thinking](https://mitmath.github.io/18S191/Fall20/) 
 - [ ] [~~4 - CS50's Introduction to Game Development~~](https://courses.edx.org/courses/course-v1:HarvardX+CS50G+Games/course/)
-- [ ] [3 - MIT Biology, 7.00x: Introduction to Biology - The Secret of Life](https://courses.edx.org/courses/course-v1:MITx+7.00x+1T2020j/course/)
+- [ ] [3 - MIT Biology, 7.00x: Introduction to Biology - The Secret of Life **[16/23%]**](https://courses.edx.org/courses/course-v1:MITx+7.00x+1T2020j/course/)
 - [x] [2 - Learning How to Learn](https://www.coursera.org/learn/learning-how-to-learn/home/welcome)
 
 ## 2019

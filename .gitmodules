@@ -8,5 +8,5 @@
 	path = 05 -- Introduction to Computational Thinking/18S191
 	url = git@github.com:mitmath/18S191.git
 [submodule "07 -- Computational thinking in Julia + COVID-19"]
-	path = 07 -- Computational thinking in Julia + COVID-19
+	path = 07 -- Computational thinking in Julia + COVID-19/6S083-git
 	url = git@github.com:mitmath/6S083.git
