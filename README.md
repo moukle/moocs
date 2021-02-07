@@ -4,7 +4,7 @@
 - [ ] [7 - MIT 6.S083 / 18.S190: Computational thinking with Julia + application to the COVID-19 pandemic](https://github.com/mitmath/6S083)
 
 ## 2020
-- [ ] [6 - DeepLearning - Generative Adversarial Networks (GANs) Specialization](https://www.coursera.org/specializations/generative-adversarial-networks-gans)
+- [X] [6 - DeepLearning - Generative Adversarial Networks (GANs) Specialization](https://www.coursera.org/specializations/generative-adversarial-networks-gans)
 	- [X] 1 Part: Build Basic Generative Adversarial Networks (GANs)
 	- [X] 2 Part: Build Better Generative Adversarial Networks (GANs) *(only audit)*
 	- [X] 3 Part: Apply Generative Adversarial Networks (GANs) *(only audit)*
