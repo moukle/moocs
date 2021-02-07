@@ -101,8 +101,59 @@
 		- select random class (eg. dirt, cobble) during inference
 - [SuperResolution SRGAN Notebook](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C3W2_SRGAN_(Optional).ipynb)
 	- PReLU: $x_{\text{PReLU}} := \max(0, x) + a * \min(0, x).$
-	- ![PixelShuffle](img/pixelshuffle.png) 
+	- ![PixelShuffle](img/pixelshuffle.png)
 	- Generator: ![SRResNet](img/SRResNet.png)
 	- Discriminator: ![SRDisc](img/SRDisc.png)
 - [PatchGAN Paper](https://arxiv.org/abs/1803.07422)
 - [GauGAN Notebook](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C3W2_GauGAN_(Optional).ipynb)
+
+
+# Feb  7 - Unpaired Translation with CycleGAN
+
+- Unpaired image-to-image translation
+	- Learn mapping between two piles of images (zebras & horses)
+	- Content = common elements
+	- Style = unique elements (stripes & single color)
+	- No longer a clear target output
+- CycleGAN
+	- ![cycle_consistency](img/cycle_consistency.png)
+	- GAN Zebras -> Horses
+	- Gan Horses -> Zebras
+- Arch
+	- 2 Gens: UNet + DCCGAN
+	- 2 Dics: PatchGAN
+- Cycle Consistency (loss term)
+	- Z -> H -> Z'
+	- H -> Z -> H'
+	- $Cosistency Loss = Z - Z' + H-H'$
+	- $Loss = Adversarial Loss + \lambda * Consistency Loss$
+	- [Ablation Studies (Loss experimentation: only one side, ...)](https://arxiv.org/abs/1703.10593)
+		- helps prevent mode collapse
+	- transfer uncommon style elements while maintaining common content
+	- used in both directions
+	- "recover original content"
+- Least squares Loss
+	- (WGAN-GP slow)
+	- ![least_squares_loss](img/least_squares_loss.png)
+	- MSE
+	- Adverserial Loss := Least Squares Loss
+	- Pro opposed to BCE: gradient only flat iff prediction is exactly correct
+- Identity Loss
+	- optional term
+	- helps with color preservation
+	- H' = ZGan(H)
+	- $Identity Loss = H - H'$
+	- $Loss = Adversarial Loss + \lambda_1 * Consistency Loss + \lambda_2 * Identity Loss$
+- Putting it together
+	- ![horse_cycle](img/horse_cycle.png)
+	- ![gen_loss](img/gen_loss.png)
+- Applications
+	- ![tumor_before_after](img/tumor_before_after.png)
+
+
+## Links
+- [MUNIT - map to multiple latent spaces](https://github.com/NVlabs/MUNIT)
+	- ![munit-shoes](img/munit-shoes.png)
+	- [Notebook](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C3W3_MUNIT_(Optional).ipynb)
+- [Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks](https://arxiv.org/abs/1703.10593)
+- [Data augmentation using generative adversarial networks (CycleGAN) to improve generalizability in CT segmentation tasks](https://www.nature.com/articles/s41598-019-52737-x.pdf)
