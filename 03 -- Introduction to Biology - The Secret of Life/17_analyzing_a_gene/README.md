@@ -14,9 +14,9 @@
 
 
 ## Whiteboard
-![](G17_1.jpg)
-![](G17_2.jpg)
-![](G17_3.jpg)
-![](G17_4.jpg)
-![](G17_5.jpg)
-![](G17_6.jpg)
+![](img/G17_1.jpg)
+![](img/G17_2.jpg)
+![](img/G17_3.jpg)
+![](img/G17_4.jpg)
+![](img/G17_5.jpg)
+![](img/G17_6.jpg)
