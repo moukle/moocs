@@ -13,7 +13,7 @@
 
 
 ## Quiz
-###Recombinant DNA
+### Recombinant DNA
 
 > Professor Lander outlined two different ways to find a gene of interest in a library (the collection of colonies formed from cells that each carry a different recombinant vector). In method 1, mutant cells are transformed with recombinant library vectors, and cells that no longer showed the mutant phenotype contained a recombinant vector that carries the gene of interest. In method 2, the library is screened using an antibody that binds to the protein encoded by the gene of interest. For each question below, check the best answer.
 > i) Which of these methods could be used if you had no information about the sequence of your gene of interest or the identity of the protein of interest encoded by that gene? Assume that you do have a mutant phenotype. Select the single best answer.
